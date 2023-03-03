@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "266692746190",
+    "project_id": "sample-newfeed",
+    "storage_bucket": "sample-newfeed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266692746190:android:c8f2885c1b380f59f8699f",
+        "android_client_info": {
+          "package_name": "com.example.simple_news_feed_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266692746190-ef4hvfkq9g9aapnqagof9l83vg8ivv1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqtZIVBBcyhZo3cs5M5h9i_dC5tXisVaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266692746190-ef4hvfkq9g9aapnqagof9l83vg8ivv1s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "266692746190-1ccfi3a8bol8s84btgt2js41nt5arhav.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.simpleNewsFeedApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
