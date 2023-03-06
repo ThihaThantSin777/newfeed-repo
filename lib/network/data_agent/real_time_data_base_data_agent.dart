@@ -11,12 +11,12 @@ class RealTimeDataBaseDataAgent extends NewsFeedDataAgent {
 
   factory RealTimeDataBaseDataAgent() => _singleton;
 
-  final database = FirebaseDatabase.instance.ref();
+  final _database = FirebaseDatabase.instance.ref();
 
   @override
   Stream<List<NewsFeedVO>?> getNewFeedList() {
-    return database.child(kRootNodeForNewFeed).onValue.map((event) {
-      return event.snapshot.children.map<NewsFeedVO>((snapshot) {
+    return _database.child(kRootNodeForNewFeed).onValue.map((event) {
+      return event.snapshot.children.map((snapshot) {
         return NewsFeedVO.fromJson(
             Map<String, dynamic>.from(snapshot.value as Map));
       }).toList();
@@ -25,16 +25,15 @@ class RealTimeDataBaseDataAgent extends NewsFeedDataAgent {
 
   @override
   Future<void> createPost(NewsFeedVO newsFeedVO) {
-    return database
+    return _database
         .child(kRootNodeForNewFeed)
-        .child(newsFeedVO.id.toString() ??
-            DateTime.now().microsecondsSinceEpoch.toString())
+        .child(newsFeedVO.id.toString())
         .set(newsFeedVO.toJson());
   }
 
   @override
   Future<void> deletePost(int postID) {
-    return database
+    return _database
         .child(kRootNodeForNewFeed)
         .child(postID.toString())
         .remove();
@@ -42,7 +41,7 @@ class RealTimeDataBaseDataAgent extends NewsFeedDataAgent {
 
   @override
   Future<NewsFeedVO> getNewsFeedByPostID(int postID) {
-    return database
+    return _database
         .child(kRootNodeForNewFeed)
         .child(postID.toString())
         .once()

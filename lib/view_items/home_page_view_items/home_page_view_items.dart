@@ -32,17 +32,15 @@ class NewsFeedItemView extends StatelessWidget {
               trailingWidget: PopUpMenuView(
                 onSelect: (value) {
                   if (value == kDeleteText) {
-                    showDialog(
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (context) => const LoadingAlertDialogWidget());
+
                     context
                         .getHomePageBlocInstance()
                         .deletePost(newsFeed.id ?? 0)
                         .then((value) {
-                      context.navigateBack(context);
+
+
                     }).catchError((error) {
-                      context.navigateBack(context);
+
                     });
                   }
                   if (value == kEditText) {
@@ -149,12 +147,15 @@ class FloatingActionButtonItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () => context.navigateToNextScreen(
-          context,
-          AddNewsFeedPage(
+      onPressed: () {
+        context.navigateToNextScreen(
+            context,
+            AddNewsFeedPage(
             profileName: context.getHomePageBlocInstance().getProfileName,
-            profileURL: context.getHomePageBlocInstance().getProfileURL,
-          )),
+        profileURL: context.getHomePageBlocInstance().getProfileURL,
+        ));
+
+      },
       backgroundColor: kPrimaryBgColor,
       child: const Icon(Icons.add),
     );
