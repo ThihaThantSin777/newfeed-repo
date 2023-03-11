@@ -28,11 +28,11 @@ class HomePageBloc extends ChangeNotifier {
     _newsFeedApply.getNewsFeedList().listen((event) {
       _newsFeedList = event;
       _profileName =
-          (_newsFeedList?.isNotEmpty ?? false && _newsFeedList != null)
+          (_newsFeedList != null && (_newsFeedList?.isNotEmpty ?? false))
               ? _newsFeedList?.first.userName ?? ""
               : "Thiha Thant Sin";
       _profileURL =
-          (_newsFeedList?.isNotEmpty ?? false && _newsFeedList != null)
+          ( _newsFeedList != null &&(_newsFeedList?.isNotEmpty ?? false) )
               ? _newsFeedList?.first.profile ?? ""
               : kDefaultImage;
       notifyListeners();

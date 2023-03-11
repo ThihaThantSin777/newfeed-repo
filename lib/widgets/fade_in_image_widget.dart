@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:simple_news_feed_app/constant/dimens.dart';
-import 'package:simple_news_feed_app/constant/strings.dart';
 import 'package:simple_news_feed_app/utils/assets_images.dart';
 
 class FadeInImageWidget extends StatelessWidget {

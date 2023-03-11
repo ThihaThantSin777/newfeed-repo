@@ -22,17 +22,17 @@ extension Navigation on BuildContext {
 
 extension FileExtension on File {
   FileType getFileType() {
-    if ((path.endsWith(".png") ?? false) ||
-        (path.endsWith(".jpg") ?? false) ||
-        (path.endsWith(".jpeg") ?? false)) {
+    if ((path.endsWith(".png") ) ||
+        (path.endsWith(".jpg") ) ||
+        (path.endsWith(".jpeg") )) {
       return FileType.image;
     }
-    if ((path.endsWith(".mkv") ?? false) ||
-        (path.endsWith(".mp4") ?? false) ||
-        (path.endsWith(".mov") ?? false)) {
+    if ((path.endsWith(".mkv") ) ||
+        (path.endsWith(".mp4") ) ||
+        (path.endsWith(".mov") )) {
       return FileType.video;
     }
-    if ((path.endsWith(".pdf") ?? false) || (path.endsWith(".txt") ?? false)) {
+    if ((path.endsWith(".pdf") ) || (path.endsWith(".txt") )) {
       return FileType.file;
     }
     return FileType.none;

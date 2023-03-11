@@ -8,7 +8,6 @@ import 'package:simple_news_feed_app/constant/strings.dart';
 import 'package:simple_news_feed_app/data/vos/news_feed_vo.dart';
 import 'package:simple_news_feed_app/utils/extensions.dart';
 import 'package:simple_news_feed_app/view_items/add_post_view_items/add_post_view_items.dart';
-import 'package:simple_news_feed_app/widgets/alert_dialog_widget.dart';
 import 'package:simple_news_feed_app/widgets/easy_text.dart';
 import 'package:simple_news_feed_app/widgets/image_video_file_view_widget.dart';
 import 'package:simple_news_feed_app/widgets/profile_widget.dart';

@@ -9,7 +9,6 @@ import 'package:simple_news_feed_app/utils/extensions.dart';
 import 'package:simple_news_feed_app/view_items/home_page_view_items/home_page_view_items.dart';
 import 'package:simple_news_feed_app/widgets/easy_text.dart';
 
-import 'add_news_feed_page.dart';
 import 'details_page.dart';
 
 class HomePage extends StatelessWidget {

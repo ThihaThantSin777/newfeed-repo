@@ -1,5 +1,6 @@
 import 'package:simple_news_feed_app/data/apply/news_feed_apply.dart';
 import 'package:simple_news_feed_app/data/vos/news_feed_vo.dart';
+import 'package:simple_news_feed_app/network/data_agent/cloud_fire_store_database.dart';
 import 'package:simple_news_feed_app/network/data_agent/news_feed_data_agent.dart';
 import 'package:simple_news_feed_app/network/data_agent/real_time_data_base_data_agent.dart';
 
@@ -10,7 +11,9 @@ class NewsFeedApplyImpl extends NewsFeedApply {
 
   factory NewsFeedApplyImpl() => _singleton;
 
-  final NewsFeedDataAgent _newsFeedDataAgent = RealTimeDataBaseDataAgent();
+ // final NewsFeedDataAgent _newsFeedDataAgent = RealTimeDataBaseDataAgent();
+
+  final NewsFeedDataAgent _newsFeedDataAgent = CloudFireStoreDataAgentImpl();
 
   @override
   Stream<List<NewsFeedVO>?> getNewsFeedList() =>

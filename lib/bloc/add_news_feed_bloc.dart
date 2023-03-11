@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:simple_news_feed_app/data/apply/news_feed_apply_impl.dart';
 import 'package:simple_news_feed_app/data/vos/news_feed_vo.dart';
-import 'package:simple_news_feed_app/utils/enums.dart';
 
 import '../data/apply/news_feed_apply.dart';
 

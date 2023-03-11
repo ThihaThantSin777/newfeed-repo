@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:simple_news_feed_app/constant/colors.dart';
 import 'package:simple_news_feed_app/constant/dimens.dart';
 import 'package:simple_news_feed_app/widgets/easy_text.dart';
-import 'package:simple_news_feed_app/widgets/fade_in_image_widget.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget(
