@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:simple_news_feed_app/data/apply/news_feed_apply_impl.dart';
 import 'package:simple_news_feed_app/data/vos/news_feed_vo.dart';
 
+import '../constant/strings.dart';
 import '../data/apply/news_feed_apply.dart';
 
 class AddNewsFeedBloc extends ChangeNotifier {
@@ -13,16 +14,18 @@ class AddNewsFeedBloc extends ChangeNotifier {
   File? _selectFile;
   String _description = '';
   NewsFeedVO? _newsFeedVO;
+  String _networkImage='';
 
   ///Getter
   bool get isDispose => _dispose;
-
 
   bool get canPost => _post;
 
   File? get getSelectFile => _selectFile;
 
   NewsFeedVO? get getNewsFeedVO => _newsFeedVO;
+
+  String get getNetworkImage=>_networkImage;
 
   ///State Instance
   final NewsFeedApply _newsFeedApply = NewsFeedApplyImpl();
@@ -31,7 +34,7 @@ class AddNewsFeedBloc extends ChangeNotifier {
     if(_newsFeedVO!=null){
       _newsFeedVO?.description=_description;
     }
-    return _newsFeedApply.createPost(_description, _newsFeedVO);
+    return _newsFeedApply.createPost(_description, _newsFeedVO,_selectFile);
   }
 
   AddNewsFeedBloc( int postID) {
@@ -39,6 +42,10 @@ class AddNewsFeedBloc extends ChangeNotifier {
 
       _newsFeedApply.getNewsFeedByPostID(postID).then((value) {
         _newsFeedVO = value;
+        if(_newsFeedVO?.file!=kDefaultImage){
+            _networkImage=_newsFeedVO?.file??'';
+            notifyListeners();
+        }
         notifyListeners();
       });
     }
@@ -46,6 +53,7 @@ class AddNewsFeedBloc extends ChangeNotifier {
 
   void setSelectFileNull() {
     _selectFile = null;
+    _networkImage='';
     // _post=false;
     notifyListeners();
   }

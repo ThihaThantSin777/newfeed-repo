@@ -3,6 +3,7 @@ import 'package:simple_news_feed_app/constant/colors.dart';
 import 'package:simple_news_feed_app/constant/dimens.dart';
 import 'package:simple_news_feed_app/constant/strings.dart';
 import 'package:simple_news_feed_app/data/vos/news_feed_vo.dart';
+import 'package:simple_news_feed_app/utils/assets_images.dart';
 import 'package:simple_news_feed_app/utils/extensions.dart';
 import 'package:simple_news_feed_app/widgets/easy_text.dart';
 import 'package:simple_news_feed_app/widgets/image_video_file_view_widget.dart';
@@ -31,16 +32,11 @@ class NewsFeedItemView extends StatelessWidget {
               trailingWidget: PopUpMenuView(
                 onSelect: (value) {
                   if (value == kDeleteText) {
-
                     context
                         .getHomePageBlocInstance()
                         .deletePost(newsFeed.id ?? 0)
-                        .then((value) {
-
-
-                    }).catchError((error) {
-
-                    });
+                        .then((value) {})
+                        .catchError((error) {});
                   }
                   if (value == kEditText) {
                     context.navigateToNextScreen(
@@ -72,13 +68,17 @@ class NewsFeedItemView extends StatelessWidget {
             const SizedBox(
               height: kSP5x,
             ),
-            Flexible(
-              child: ImageViewFileViewWidget(
-                type: newsFeed.getFileType(),
-                file: newsFeed.file ?? '',
-                onTap: (file) {},
-              ),
-            )
+            // Flexible(
+            //   child: ImageViewFileViewWidget(
+            //     type: newsFeed.getFileType(),
+            //     file: newsFeed.file ?? '',
+            //     onTap: (file) {},
+            //   ),
+            // ),
+            ///For Firebase Storage
+            FadeInImage(
+                placeholder: AssetImage(AssetsImages.kDefaultImagePath),
+                image: NetworkImage(newsFeed.file ?? ''))
           ],
         ),
       ),
@@ -150,10 +150,9 @@ class FloatingActionButtonItemView extends StatelessWidget {
         context.navigateToNextScreen(
             context,
             AddNewsFeedPage(
-            profileName: context.getHomePageBlocInstance().getProfileName,
-        profileURL: context.getHomePageBlocInstance().getProfileURL,
-        ));
-
+              profileName: context.getHomePageBlocInstance().getProfileName,
+              profileURL: context.getHomePageBlocInstance().getProfileURL,
+            ));
       },
       backgroundColor: kPrimaryBgColor,
       child: const Icon(Icons.add),

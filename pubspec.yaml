@@ -37,6 +37,7 @@ dependencies:
   firebase_database: ^10.0.14
   json_annotation: ^4.8.0
   json_serializable: ^6.6.1
+  firebase_storage: ^11.0.15
   flutter:
     sdk: flutter
 

@@ -14,3 +14,4 @@ const String kDetailsText='Details';
 const String kDefaultImage='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png';
 
 const String kRootNodeForNewFeed='newfeed';
+const String kFileUploadPath = 'uploads';

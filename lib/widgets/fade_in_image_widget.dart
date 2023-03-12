@@ -41,6 +41,7 @@ class NetworkImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return isCircle
         ? CircleAvatar(
             radius: 20,
